@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  /* Palette — Pink & Orange Dominant + Touch of Warm Amber */
+  --night: #120910;
+  --night-surface: #1C0E18;
+  --night-elevated: #281422;
+  --cream: #FFF5EC;
+  --cream-muted: #DAC4BA;
+  --pink: #CE0058;
+  --crimson: #BA0917;
+  --orange: #DF5000;
+  --yellow: #F79B02;
+  --olive: #455A23;
+
+  /* Semantic theme tokens (Dark default) */
+  --bg-page: #120912;
+  --bg-section: #120910;
+  --bg-surface: #1C0E18;
+  --bg-elevated: #281422;
+  --text-primary: #FFF5EC;
+  --text-secondary: #DAC4BA;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="light"] {
+  --bg-page: #FAF4EE;
+  --bg-section: #FAF4EE;
+  --bg-surface: #F2E7DC;
+  --bg-elevated: #EAE0D5;
+  --text-primary: #1B0D18;
+  --text-secondary: #5E4A54;
+  --border-subtle: rgba(27, 13, 24, 0.12);
+}
+
+@theme inline {
+  --color-night: #120910;
+  --color-night-surface: #1C0E18;
+  --color-cream: #FFF5EC;
+  --color-pink: #CE0058;
+  --color-crimson: #BA0917;
+  --color-orange: #DF5000;
+  --color-yellow: #F79B02;
+  --color-olive: #455A23;
+  --font-display: "Garet", "Poppins", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: "Poppins", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background-color: #CE0058;
+  color: #FFF5EC;
+}
+
+/* =========================================================================
+   Light Mode Editorial Palette Adaptation for Lower Portfolio Sections
+   (Keeps dark-mode classes intact while transforming surfaces & ink cleanly)
+   ========================================================================= */
+html[data-theme="light"] .theme-adapt {
+  background-color: #FAF4EE;
+  color: #1B0D18;
+}
+
+html[data-theme="light"] .theme-adapt section[class*="bg-[#120910]"],
+html[data-theme="light"] .theme-adapt section[class*="bg-[#120912]"] {
+  background-color: #FAF4EE;
+  color: #1B0D18;
+}
+
+html[data-theme="light"] .theme-adapt section[class*="bg-[#1C0E18]"] {
+  background-color: #F3E9DF;
+  color: #1B0D18;
+}
+
+html[data-theme="light"] .theme-adapt [class*="bg-[#1C0E18]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#1C0F1C]"] {
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 28px rgba(27, 13, 24, 0.05);
+}
+
+html[data-theme="light"] .theme-adapt [class*="bg-[#281422]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#271526]"] {
+  background-color: #F2E7DC;
+}
+
+html[data-theme="light"] .theme-adapt [class*="text-[#FFF5EC]"],
+html[data-theme="light"] .theme-adapt [class*="text-[#FFF5EB]"] {
+  color: #1B0D18;
+}
+
+html[data-theme="light"] .theme-adapt [class*="text-[#DAC4BA]"],
+html[data-theme="light"] .theme-adapt [class*="text-[#D9C3B8]"] {
+  color: #5E4A54;
+}
+
+/* Preserve crisp cream ink on vibrant colored cards & CTA buttons */
+html[data-theme="light"] .theme-adapt [class*="bg-[#CE0058]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#CE0058]"] *,
+html[data-theme="light"] .theme-adapt [class*="bg-[#DF5000]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#DF5000]"] *,
+html[data-theme="light"] .theme-adapt [class*="bg-[#BA0917]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#BA0917]"] *,
+html[data-theme="light"] .theme-adapt [class*="bg-[#455A23]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#455A23]"] * {
+  color: #FFF5EC;
+}
+
+/* Keep amber highlights warm & legible on light backgrounds */
+html[data-theme="light"] .theme-adapt [class*="bg-[#CE0058]"] [class*="text-[#F79B02]"],
+html[data-theme="light"] .theme-adapt [class*="bg-[#DF5000]"] [class*="text-[#F79B02]"] {
+  color: #FFE08A;
+}
+
+html[data-theme="light"] .theme-adapt [class*="border-white/"] {
+  border-color: rgba(27, 13, 24, 0.12);
+}
+
+html[data-theme="light"] .theme-adapt [class*="divide-white/"] > :not(:first-child) {
+  border-color: rgba(27, 13, 24, 0.1);
+}
+
+html[data-theme="light"] .theme-adapt .showroom-sticky-shell {
+  background-color: #F4ECE4;
+  border-color: rgba(27, 13, 24, 0.12);
+}
+
+.bg-summer-grid {
+  background-image:
+    linear-gradient(to right, rgba(206, 0, 88, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(223, 80, 0, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}
