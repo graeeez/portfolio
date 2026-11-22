@@ -4,7 +4,6 @@ import {
   ShieldCheck,
   Waves,
   Ticket,
-  BarChart3,
   UtensilsCrossed,
   CheckCircle2,
   Sparkles,
@@ -121,38 +120,16 @@ export default function ProjectVisual({
 
   if (theme === "evaluate") {
     return (
-      <div className="overflow-hidden rounded-2xl border border-white/15">
+      <div className="group overflow-hidden rounded-2xl border border-white/15 bg-[#120912]">
         <BrowserChrome displayUrl={displayUrl} />
         <div
-          className={`relative flex ${heightClass} w-full items-center justify-center overflow-hidden bg-[#F79B02] p-4 text-[#120912]`}
+          className={`relative ${heightClass} w-full overflow-hidden bg-white`}
         >
-          <div className="pointer-events-none absolute right-0 bottom-0 h-12 w-18 bg-[#BA0917]" />
-
-          <div className="relative z-10 w-full max-w-[260px] rounded-xl border border-white/20 bg-[#1C0F1C] p-3.5 text-[#FFF5EB] shadow-xl transition-transform duration-500 group-hover:-translate-y-1">
-            <div className="mb-2.5 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 font-display text-xs font-extrabold text-[#FFF5EB]">
-                <BarChart3 className="h-3.5 w-3.5 text-[#DF5000]" /> COFFEESHOP UI
-              </span>
-              <span className="rounded-md bg-[#CE0058] px-2 py-0.5 font-mono text-[9px] font-bold text-white">
-                LIVE MENU
-              </span>
-            </div>
-            <div className="flex h-14 items-end gap-1.5 px-1">
-              {[48, 72, 60, 92, 84, 98].map((h, i) => (
-                <div
-                  key={i}
-                  style={{ height: `${h}%` }}
-                  className={`flex-1 rounded-t-sm ${
-                    i >= 4
-                      ? "bg-[#CE0058]"
-                      : i >= 2
-                      ? "bg-[#DF5000]"
-                      : "bg-[#F79B02]"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+          <img
+            src="/images/evaluate-preview.png"
+            alt="evalUAte — University of the Assumption Evaluation Portal preview"
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
         </div>
       </div>
     );
